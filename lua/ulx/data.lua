@@ -80,17 +80,6 @@ files["config.txt"] =
 ;specific config only.
 ;Any line starting with a ';' is a comment!
 
-ulx showMotd 2 ; MOTD mode
-; MOTD modes:
-; 0 - OFF No MOTD shown
-; 1 - FILE Show the players the contents of the file from the 'motdfile' cvar
-; 2 - GENERATOR Uses the MOTD generator to create a MOTD for the player (use XGUI for this)
-; 3 - URL Show the player the URL specified by the 'motdurl' cvar
-; In a URL, you can use %curmap% and %steamid% in the URL to have it automagically parsed for you (eg, server.com/?map=%curmap%&id=%steamid%).
-ulx motdfile ulx_motd.txt ; The MOTD to show, if using a file. Put this file in the root of the garry's mod directory.
-ulx motdurl ulyssesmod.net ; The MOTD to show, if using a URL.
-
-
 ulx chattime 0 ; Players can only chat every x seconds (anti-spam). 0 to disable
 ulx meChatEnabled 1 ; Allow players to use '/me' in chat. 0 = Disabled, 1 = Sandbox only (Default), 2 = Enabled
 
@@ -356,105 +345,6 @@ credits
 intro
 test_hardware
 test_speakers
-]]
-
-files["motd.txt"] =
-[[; These settings describe the default configuration and text to be shown on the MOTD. This only applies if ulx showMotd is set to 1.
-; All style configuration is set, and the values must be valid CSS.
-; Under info, you may have as many sections as you like. Valid types include "text", "ordered_list", "list".
-; Special type "mods" will automatically list workshop and regular addons in an unordered list.
-; Special type "admins" will automatically list all users within the groups specified in contents.
-; For an example of all of these items, please see the default file generated in ulx\lua\data.lua
-
-"info"
-{
-	"description" "Welcome to our server. Enjoy your stay!"
-	{
-		"title" "About This Server"
-		"type" "text"
-		"contents"
-		{
-			"This server is running ULX."
-			"To edit this default MOTD, open XGUI->Settings->Server->ULX MOTD, or edit data\ulx\motd.txt."
-		}
-	}
-	{
-		"title" "Rules"
-		"type" "ordered_list"
-		"contents"
-		{
-			"DON'T MESS WITH OTHER PLAYERS' STUFF. If they want help, they'll ask!"
-			"Don't spam."
-			"Have fun."
-		}
-	}
-	{
-		"title" "Reporting Rulebreakers"
-		"type" "list"
-		"contents"
-		{
-			"Contact an available admin on this server and let them know."
-			"Use @ before typing a chat message to send it to admins."
-			"If no admin is available, note the players name and the current time, then let an admin know as soon as they are available."
-		}
-	}
-	{
-		"title" "Installed Addons"
-		"type" "mods"
-	}
-	{
-		"title" "Our Admins"
-		"type" "admins"
-		"contents"
-		{
-			"superadmin"
-			"admin"
-		}
-	}
-}
-"style"
-{
-	"borders"
-	{
-		"border_color" "#000000"
-		"border_thickness" "2px"
-	}
-	"colors"
-	{
-		"background_color" "#dddddd"
-		"header_color" "#82a0c8"
-		"header_text_color" "#ffffff"
-		"section_text_color" "#000000"
-		"text_color" "#000000"
-	}
-	"fonts"
-	{
-		"server_name"
-		{
-			"family" "Impact"
-			"size" "32px"
-			"weight" "normal"
-		}
-		"subtitle"
-		{
-			"family" "Impact"
-			"size" "20px"
-			"weight" "normal"
-		}
-		"section_title"
-		{
-			"family" "Impact"
-			"size" "26px"
-			"weight" "normal"
-		}
-		"regular"
-		{
-			"family" "Tahoma"
-			"size" "12px"
-			"weight" "normal"
-		}
-	}
-}
 ]]
 
 ULib.fileCreateDir( "data/ulx" ) -- This is ignored if the folder already exists
